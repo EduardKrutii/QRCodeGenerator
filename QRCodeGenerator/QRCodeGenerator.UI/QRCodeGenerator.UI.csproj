@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+	<UseWindowsForms>true</UseWindowsForms>
+	<ApplicationIcon>Assets\qrcode.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\qrcode.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\QRCodeGenerator.Core\QRCodeGenerator.Core.csproj" />
+    <ProjectReference Include="..\QRCodeGenerator.Data\QRCodeGenerator.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="9.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\qrcode.ico">
+      <CopyToOutputDirectory>Do not copy
+
+</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>
