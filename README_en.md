@@ -18,6 +18,7 @@ An application for creating, customizing, and saving QR codes with a graphical W
 * Support for dark/light theme with auto-detection
 * Theme toggle button
 * Remove logo button
+* Filter QR code history (by text)
 
 ---
 
@@ -60,6 +61,7 @@ An application for creating, customizing, and saving QR codes with a graphical W
 | ----------------------------- | --------------------------- | ------------------------------------------------------------------- |
 | **Service Layer**             | `QrCodeGeneratorService.cs` | Isolates QR code generation logic                                   |
 | **Dependency Injection (DI)** | All services                | Services like `IQRCodeStorageService` are injected via constructors |
+| **Command Pattern**           | `ClearHistoryCommand.cs`    | Encapsulates the clear-history operation as a command object        |
 
 ---
 

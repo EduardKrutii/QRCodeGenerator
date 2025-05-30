@@ -7,5 +7,8 @@ namespace QRCodeGenerator.Data.Interfaces
     {
         void AddRecord(QRCodeRecord record);
         List<QRCodeRecord> GetAllRecords();
+        IEnumerable<QRCodeRecord> FindByContent(string text);
+        void ClearHistory();
+        void DeleteRecord(string content);
     }
 }

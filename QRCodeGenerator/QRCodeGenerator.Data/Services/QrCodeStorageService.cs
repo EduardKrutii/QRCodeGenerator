@@ -37,5 +37,25 @@ namespace QRCodeGenerator.Data.Services
         {
             Save(record);
         }
+        public IEnumerable<QRCodeRecord> FindByContent(string text)
+        {
+            var allRecords = LoadAll();
+            return allRecords.FindAll(r => r.Content != null && r.Content.Contains(text, StringComparison.OrdinalIgnoreCase));
+        }
+        public void ClearHistory()
+        {
+            if (File.Exists(JsonFilePath))
+            {
+                File.Delete(JsonFilePath);
+            }
+        }
+        public void DeleteRecord(string content)
+        {
+            var records = LoadAll();
+            var updatedRecords = records.FindAll(r => r.Content != content);
+
+            var json = JsonSerializer.Serialize(updatedRecords, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(JsonFilePath, json);
+        }
     }
 }
